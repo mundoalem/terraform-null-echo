@@ -1,22 +1,21 @@
-// This file is part of template-terraform-module.
+// This file is part of terraform-null-echo.
 //
-// template-terraform-module is free software: you can redistribute it and/or modify
+// terraform-null-echo is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
 // the Free Software Foundation, either version 3 of the License, or
 // (at your option) any later version.
 //
-// template-terraform-module is distributed in the hope that it will be useful,
+// terraform-null-echo is distributed in the hope that it will be useful,
 // but WITHOUT ANY WARRANTY; without even the implied warranty of
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 // GNU General Public License for more details.
 //
 // You should have received a copy of the GNU General Public License
-// along with template-terraform-module. If not, see <https://www.gnu.org/licenses/>.
+// along with terraform-null-echo. If not, see <https://www.gnu.org/licenses/>.
 
 package test
 
 import (
-	"regexp"
 	"testing"
 
 	"github.com/gruntwork-io/terratest/modules/terraform"
@@ -32,12 +31,9 @@ func TestTerraformModule(t *testing.T) {
 
 	terraform.InitAndApply(t, terraformOptions)
 
-	outputHelloJohnDoe := terraform.Output(t, terraformOptions, "hello_john")
-	outputHelloWorld := terraform.Output(t, terraformOptions, "hello_world")
-	outputNow := terraform.Output(t, terraformOptions, "now")
-	re, _ := regexp.Compile("^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}Z$")
+	outputEcho := terraform.Output(t, terraformOptions, "echo")
+	outputEchoDefault := terraform.Output(t, terraformOptions, "echo_default")
 
-	assert.Equal(t, "Hello, John Doe!", outputHelloJohnDoe)
-	assert.Equal(t, "Hello, World!", outputHelloWorld)
-	assert.Equal(t, re.MatchString(outputNow), true)
+	assert.Equal(t, outputEcho, "Hello darkness, my old friend.")
+	assert.Equal(t, outputEchoDefault, "Hello, World!")
 }
