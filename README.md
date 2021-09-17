@@ -1,4 +1,4 @@
-# Echo
+# terraform-null-echo
 
 ![Release Version](https://img.shields.io/github/v/release/mundoalem/terraform-null-echo)
 ![Pipeline Status](https://github.com/mundoalem/terraform-null-echo/actions/workflows/pipeline.yml/badge.svg)
