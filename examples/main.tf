@@ -14,7 +14,7 @@
 // along with terraform-null-echo. If not, see <https://www.gnu.org/licenses/>.
 
 module "echo" {
-  source = "../"
+  source  = "../"
   message = "Hello darkness, my old friend."
 }
 
