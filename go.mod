@@ -1,4 +1,4 @@
-module github.com/mundoalem/template-terraform-module
+module github.com/mundoalem/terraform-null-echo
 
 go 1.17
 
