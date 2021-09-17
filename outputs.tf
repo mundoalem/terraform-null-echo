@@ -14,5 +14,6 @@
 // along with terraform-null-echo. If not, see <https://www.gnu.org/licenses/>.
 
 output "echo" {
-  value = local.message
+  description = "The message sent as the input of the module."
+  value       = local.message
 }
